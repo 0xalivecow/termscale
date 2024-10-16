@@ -11,6 +11,7 @@ use ratatui::{
 };
 
 mod app;
+mod utests;
 use app::{App, CurrentScreen};
 mod parse;
 mod scale;
@@ -18,7 +19,7 @@ mod ui;
 use ui::ui;
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let data = parse::deserialise_json(&scale::build_commands()).unwrap();
+    let data = parse::deserialise_json(&scale::ts_status()).unwrap();
     println!("{:?}", data);
     println!("{:?}", data["Self"]["TailscaleIPs"]);
 
@@ -54,10 +55,6 @@ fn run_app<B: Backend>(terminal: &mut Terminal<B>, app: &mut App) -> io::Result<
             }
             match app.current_screen {
                 CurrentScreen::Main => match key.code {
-                    KeyCode::Char('e') => {
-                        app.current_screen = CurrentScreen::Editing;
-                        app.currently_editing = Some(CurrentlyEditing::Key);
-                    }
                     KeyCode::Char('q') => {
                         app.current_screen = CurrentScreen::Exiting;
                     }

@@ -1,6 +1,6 @@
 use std::process::{Command, Output};
 
-pub fn build_commands() -> String {
+pub fn ts_status() -> String {
     let command_output = Command::new("tailscale")
         .arg("status")
         .arg("--json")

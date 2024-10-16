@@ -6,6 +6,7 @@ use std::{
 
 pub enum CurrentScreen {
     Main,
+    Exiting,
 }
 
 struct Ip {

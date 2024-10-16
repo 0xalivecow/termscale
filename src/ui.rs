@@ -41,6 +41,10 @@ pub fn ui(frame: &mut Frame, app: &App) {
                 "(q) to quit / (e) to make new pair",
                 Style::default().fg(Color::Red),
             ),
+            CurrentScreen::Exiting => Span::styled(
+                "(q) to quit / (e) to make new pair",
+                Style::default().fg(Color::Red),
+            ),
         }
     };
 
